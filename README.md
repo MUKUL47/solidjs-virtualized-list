@@ -13,7 +13,7 @@
 ```jsx
 import { createSignal } from "solid-js";
 import { render } from "solid-js/web";
-import { VirtualizedList } from "solidjs-virtualized";
+import { VirtualizedList } from "./virtualized-list.jsx";
 
 const root = document.getElementById("root");
 
