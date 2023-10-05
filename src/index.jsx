@@ -3,7 +3,8 @@ import { render } from "solid-js/web";
 import { VirtualizedList } from "./virtualized-list";
 
 const root = document.getElementById("root");
-let data = Array.from({ length: 1000000 }).map((v, i) => i + 1);
+let data = Array.from({ length: 1e6 }).map((v, i) => i + 1);
+let x = Array.from({ length: 1e5 }).map((v, i) => i + 1);
 let scrollTo;
 const [scrollToKey, setScrollToKey] = createSignal(0);
 render(
@@ -27,7 +28,7 @@ render(
       >
         {({ index }) => {
           return data[index] ? (
-            <p style={{ height: "100%" }}>!{data[index]}</p>
+            <p style={{ height: "100%" }}>Y:{data[index]}</p>
           ) : null;
         }}
       </VirtualizedList>
@@ -37,6 +38,25 @@ render(
         onChange={(e) => setScrollToKey(() => e.target.value)}
       />
       <button onClick={() => scrollTo(+scrollToKey())}>Scroll</button>
+      <VirtualizedList
+        options={{
+          containerSize: 1000,
+          dataLength: x.length,
+          cellHeightWidth: 100,
+          overscan: 10,
+          direction: "x",
+        }}
+        parentContainerStyle={{
+          width: "250px",
+          height: "100px",
+        }}
+      >
+        {({ index }) => {
+          return x[index] ? (
+            <p style={{ height: "100%" }}>X:{x[index]}</p>
+          ) : null;
+        }}
+      </VirtualizedList>
     </div>
   ),
   root
