@@ -1,12 +1,16 @@
-# React Virtualized List
+# SolidJs Virtualized List
 
-## A lightweight, highly efficient virtualized list component for React that supports both horizontal and vertical rows, allowing you to efficiently render large datasets with ease.
+## A lightweight, highly efficient virtualized list component for SolidJs that supports both horizontal and vertical rows, allowing you to efficiently render large datasets with ease.
 
 #### Features
 
 1. Supports both horizontal and vertical rows.
 2. Efficiently handles large datasets by rendering only the visible elements.
 3. Provides a scrollTo function to programmatically scroll to a specific item.
+
+```
+npm i solidjs-virtualizedlist
+```
 
 ##### Usage Example
 
