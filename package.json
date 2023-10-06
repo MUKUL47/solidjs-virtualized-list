@@ -1,6 +1,6 @@
 {
-  "name": "solidjs-virtualized",
-  "version": "0.0.0",
+  "name": "solidjs-virtualizedlist",
+  "version": "0.0.2",
   "type": "module",
   "types": "index.d.ts",
   "main": "dist/index.js",
