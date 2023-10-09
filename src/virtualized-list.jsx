@@ -13,16 +13,16 @@ import { createSignal, onMount } from "solid-js";
  *    debounce?: number;
  *    onScroll?: (event: Event) => void;
  *  };
- *  parentContainerStyle?: Record<string, string>;
- *  scrollContainerStyle?: Record<string, string>;
+ *  parentContainerProps?: React.DetailedHTMLProps;
+ *  scrollContainerProps?: React.DetailedHTMLProps;
  * }} props
  * @returns {JSX.Element}
  */
 export function VirtualizedList({
   children,
   options,
-  parentContainerStyle = {},
-  scrollContainerStyle = {},
+  parentContainerProps = {},
+  scrollContainerProps = {},
 } = {}) {
   const [list, setList] = createSignal();
   let debouncer = -1;
@@ -140,17 +140,18 @@ export function VirtualizedList({
 
   return (
     <div
+      {...parentContainerProps}
       ref={parentRef}
       onScroll={onScrollRef}
       style={{
-        ...parentContainerStyle,
         overflow: "auto",
         willChange: "transform",
         position: "relative",
         boxSizing: "border-box",
+        ...(parentContainerProps.style || {}),
       }}
     >
-      <div ref={scrollerRef} style={scrollContainerStyle}>
+      <div ref={scrollerRef} {...scrollContainerProps}>
         {list()}
       </div>
     </div>

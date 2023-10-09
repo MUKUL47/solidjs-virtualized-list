@@ -1,6 +1,6 @@
 {
   "name": "solidjs-virtualizedlist",
-  "version": "0.0.2",
+  "version": "0.0.5",
   "type": "module",
   "types": "index.d.ts",
   "main": "dist/index.js",
@@ -15,5 +15,16 @@
   "devDependencies": {
     "vite": "^4.4.5",
     "vite-plugin-solid": "^2.7.0"
+  },
+  "keywords": [
+    "solidjs",
+    "solid"
+  ],
+  "author": {
+    "name": "Mukul",
+    "url": "https://github.com/MUKUL47/solidjs-virtualized-list"
+  },
+  "repository": {
+    "url": "https://github.com/MUKUL47/solidjs-virtualized-list"
   }
 }

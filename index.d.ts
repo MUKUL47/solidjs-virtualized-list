@@ -14,8 +14,14 @@ interface VirtualizedListOptions {
 interface VirtualizedListProps {
   children: ({ index }: { index: number }) => JSX.Element;
   options: VirtualizedListOptions;
-  parentContainerStyle?: Record<string, string>;
-  scrollContainerStyle?: Record<string, string>;
+  parentContainerProps?: React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+  >;
+  scrollContainerProps?: React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+  >;
 }
 
 export function VirtualizedList(props: VirtualizedListProps): JSX.Element;

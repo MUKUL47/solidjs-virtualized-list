@@ -22,9 +22,12 @@ render(
             console.log(e);
           },
         }}
-        parentContainerStyle={{
-          width: "250px",
+        parentContainerProps={{
+          style: {
+            width: "250px",
+          },
         }}
+        scrollContainerProps={{}}
       >
         {({ index }) => {
           return data[index] ? (

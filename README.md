@@ -43,9 +43,12 @@ render(
             console.log(e); // Event handler for scroll events
           },
         }}
-        parentContainerStyle={{
-          width: "250px", // Additional styling for the parent container
+        parentContainerProps={{
+          style: {
+            width: "250px",
+          },
         }}
+        scrollContainerProps={{}}
       >
         {({ index }) => {
           return data[index] ? (
@@ -66,13 +69,22 @@ render(
 );
 ```
 
-```
-containerSize: Height or width of the visible container.
-dataLength: Total length of the dataset.
-cellHeightWidth: Height or width of each item in the list.
-overscan: Number of extra items to render above and below the visible area.
-direction: Direction of the list, either "x" for horizontal or "y" for vertical.
-scrollTo: Callback function to set the scrollTo function.
-onScroll: Event handler for scroll events.
-parentContainerStyle: Additional styling for the parent container of the virtualized list.
-```
+| Property               | Type                                                                                     | Description                                                              |
+| ---------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `children`             | `({ index }: { index: number }) => JSX.Element`                                          | Function that takes an index and returns a React element to be rendered. |
+| `options`              | [`VirtualizedListOptions`](#virtualizedlistoptions)                                      | Configuration options for the virtualized list.                          |
+| `parentContainerProps` | React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> (optional) | HTML attributes for the parent container element.                        |
+| `scrollContainerProps` | React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> (optional) | HTML attributes for the scroll container element.                        |
+
+### `VirtualizedListOptions`
+
+| Property          | Type                                               | Description                                                       |
+| ----------------- | -------------------------------------------------- | ----------------------------------------------------------------- |
+| `containerSize`   | `number`                                           | Height of the visible container.                                  |
+| `overscan`        | `number` (optional)                                | Number of extra items to render above and below the visible area. |
+| `dataLength`      | `number`                                           | Total length of the dataset.                                      |
+| `cellHeightWidth` | `number`                                           | Height or Width of each item in the list.                         |
+| `direction`       | `"x"` \| `"y"` (optional, default: `"y"`)          | Direction of the list (horizontal or vertical).                   |
+| `scrollTo`        | `(cb: (index: number) => void) => void` (optional) | Callback to set the scrollTo function.                            |
+| `debounce`        | `number` (optional)                                | Debounce value for scroll events (milliseconds).                  |
+| `onScroll`        | `(event: Event) => void` (optional)                | Event handler for scroll events.                                  |
